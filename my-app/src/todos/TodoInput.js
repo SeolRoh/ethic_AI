@@ -7,6 +7,7 @@ const TodoInput = ({onAdd}) => {
 
     const textRef = useRef()
     const [text,setText] = useState('')
+    const [file,setFile] = useState('')
 
     const changeInput = (evt) => {
         const {value} = evt.target
@@ -23,16 +24,39 @@ const TodoInput = ({onAdd}) => {
         setText('')
         textRef.current.focus();
     }
+    
+    const handleFileChange = (e) =>{
+        setFile(e.target.files[0]);
+
+        let form = new FormData();
+        form.append('file', e.target.files[0]);
+        
+        fetch(`http://163.180.117.22:8881/api/upload`,{
+            method: 'POST',
+            body : form
+          })
+        .then(data => {
+          console.log(data);
+        })
+
+    }
 
     return (
         <form className='TodoInput' onSubmit={onSubmit}>
             {/* <input type='text' value={text} 
             onChange={changeInput} ref={textRef}/> */}
             <div>
-                <button style={{margin:"0"}}>
-                    <MdAddCircle className='icon' size='50'>
-                    </MdAddCircle>
-                </button>
+            <label for="raised-button-file">
+                <MdAddCircle className='icon' size='50' >
+                </MdAddCircle>
+            </label>
+            <input accept="image/*"
+                   id="raised-button-file"
+                   type="file"
+                   file={file.file}
+                   onChange={handleFileChange}
+                   style={{display: "none" }}
+            />
             </div>
             
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVXO7VZexAEx7Vu8uax_1-v3nZ65zwhkfr5A&usqp=CAU" alt="image" />
