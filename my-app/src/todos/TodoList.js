@@ -37,15 +37,13 @@ const TodoList = ({todos,onDel,onToggle}) => {
     }
 
     return (
-        // <ul className='TodoList'>
-        //     {
-        //         todos.map(todos=><TodoItem key={todos.id}
-        //         todos={todos} onDel={onDel} onToggle={onToggle}/>)
-        //     }
-        // </ul>
         <ul className='TodoList'>
-            {imgList.map((todoImg) =><img src={todoImg.url} />)}
-            <button onClick={onimgList}>클릭</button>
+            {/* {imgList.map((todoImg) =><video src={todoImg.url} />)} */}
+            {imgList.map((todoImg) =><embed type="video/webm" src={todoImg.url} width="250" height="200"/>)}
+            {/* {<button onClick={onimgList}>클릭 </button> }
+            
+            {imgList.map((todoImg) => <button onClick= {todoImg.url}> {todoImg.id} </button> )} */}
+
         </ul>
     );
 };

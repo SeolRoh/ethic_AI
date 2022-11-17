@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './TodoInput.css';
 import { MdAddCircle } from "react-icons/md";
-
+// import dog from 'my-app\public\assets';
 
 const TodoInput = ({onAdd}) => {
 
@@ -59,7 +59,7 @@ const TodoInput = ({onAdd}) => {
             />
             </div>
             
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVXO7VZexAEx7Vu8uax_1-v3nZ65zwhkfr5A&usqp=CAU" alt="image" />
+            {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVXO7VZexAEx7Vu8uax_1-v3nZ65zwhkfr5A&usqp=CAU"/> */}
         </form>
     );
 };
