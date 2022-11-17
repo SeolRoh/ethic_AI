@@ -17,7 +17,7 @@ const TodoList = ({todos,onDel,onToggle}) => {
     }*/
 
     useEffect(() => {
-        fetch(`http://163.180.117.22:8881/api/list`,{
+        fetch(`http://163.180.117.38:33333/api/list`,{
             method: 'GET'
         })
         .then(response => {
